@@ -1,0 +1,66 @@
+/* forms.css */
+label, .toggle-container {
+    display: block;
+    margin-top: 20px;
+}
+
+.form-container #vendorName,
+.form-container #companyName {
+    width: 36%;
+    display: inline-block;
+}   
+
+.form-container #country,
+.form-container #dateCreated,
+.form-container #primaryPhone,
+.form-container #paymentAtCompanyLevel,
+.form-container #gst {
+    width: 22%;
+    display: inline-block;
+}
+
+.form-container #paymentModes {
+    width: 18%;
+    display: inline-block;
+}
+
+.form-container #address {
+    width: 100%;
+    display: block;
+}
+
+form button[type="submit"] {
+    width: 100%;
+}
+
+/* FOR VENDOR */
+
+/* Flex row configuration for consistent alignment */
+.input-flex-row {
+    display: flex;
+    align-items: center; /* Ensures vertical centering of all children */
+    gap: 10px; /* Consistent gap between elements */
+}
+
+/* Styling adjustments for input fields to normalize appearance */
+.input-flex-row input,
+.input-flex-row label {
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle; /* Central alignment of content within the line */
+}
+
+.input-flex-row input[type="checkbox"] {
+    margin-right: 5px; /* Space next to label text */
+    vertical-align: middle; /* Adjust if checkbox appears higher or lower */
+}
+
+.input-flex-row label {
+    display: inline-flex;
+    align-items: center; /* Center content of label */
+    margin-left: 20px; /* Space from previous input, adjust as needed */
+    white-space: nowrap; /* Keep label in single line */
+}
+
+
+

@@ -1,0 +1,125 @@
+/* layout-sidebar.css */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    overflow: hidden; /* Prevent scrollbars from appearing on the main container */
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1; /* Allow the content container to grow and fill the remaining space */
+    overflow: hidden; /* Prevent scrollbars from appearing on the content container */
+}
+
+.form-container {
+    width: 80%;
+    overflow-y: auto; /* Enable vertical scrolling within the form container */
+    /* Add any additional styles for the form container */
+}
+
+.companies-list,
+.vendors-list, 
+.projects-list {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden; /* Added overflow: hidden */
+}
+
+/* Additional styles for static heading and scrollable list */
+.static-heading {
+    position: sticky;
+    top: 0;
+    /*background-color: white;  So content below doesn't show through */
+    z-index: 1000; /* Ensures it stays on top */
+    width: 100%; /* Full width to match container */
+}
+
+.scrollable-list {
+    overflow-y: auto;
+    max-height: 90vh; /* Adjust based on your viewport height */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scrollable-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures space between left and right items */
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    transition: background-color 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrollable-list li input[type="checkbox"] {
+    width: 16px; /* Set a specific width */
+    height: 16px; /* Set a specific height */
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevents checkbox from growing */
+    align-self: center; /* Center aligns the text */
+    visibility: hidden; /* Hide checkboxes by default */
+}
+
+.scrollable-list li:hover input[type="checkbox"],
+.scrollable-list li.show-checkboxes input[type="checkbox"] {
+    visibility: visible; /* Show checkbox on hover or when checked */
+}
+
+.scrollable-list li span {
+    flex-grow: 1;
+    margin-left: 2px;
+    white-space: nowrap; /* Prevents the company name from wrapping */
+    overflow: hidden; /* Ensures it stays within its container */
+    text-overflow: ellipsis; /* Adds ellipsis if text overflows */
+    max-width: calc(100% - 120px); /* Adjusts to prevent overflow */
+    align-self: center; /* Center aligns the text */
+}
+
+.scrollable-list li button {
+    margin-top: 0; /* Override margin-top */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    flex-shrink: 0; /* Prevents button from growing */
+    align-self: center; /* Center aligns the button */
+}
+
+.scrollable-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.scrollable-list li button:hover {
+    background-color: #0056b3;
+}
+
+.header-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.header-container h1 {
+    margin: 0;
+    white-space: nowrap; /* Prevent the text from wrapping */
+    margin-right: 20px; /* Add space between the h1 and the button */
+}
+
+.header-container #newCompanyButton {
+    margin-top: 0; /* Override margin-top */
+    padding: 10px 20px; /* Adjust as needed */
+    font-size: 1em; /* Adjust as needed */
+}
+
+

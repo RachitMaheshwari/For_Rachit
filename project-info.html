@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Form</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout-sidebar.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-rsssl=1>
+    <div class="main-container">
+        <div class="header-container">
+            <h1>Manage Projects</h1>
+            <button type="button" id="newProjectButton">Add New Project</button>
+        </div>
+        <div class="content-container">
+            <div id="projectFormContainer" class="form-container">
+                <div class="tabs">
+                    <button class="tablinks" onclick="openTab(event, 'Form')">Form</button>
+                    <button class="tablinks" onclick="openTab(event, 'FutureWork')">Future Work</button>
+                </div>
+                <div id="Form" class="tabcontent">
+                    <h2>Add New Project</h2>
+                    <form id="projectForm">
+                        <!-- Project Details -->
+                        <input type="hidden" id="projectId" name="projectId"> <!-- Hidden field to store project ID -->
+                        <div id="projectDetails" class="project-row">
+                            <input type="text" id="projectName" name="projectName" placeholder="Project Name" required>
+                            <input type="date" id="projectDate" name="projectDate" required>
+                            <select id="projectStage" name="projectStage">
+                                <option value="estimates" selected>Estimates</option>
+                                <option value="inProgress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <select id="clientName" name="clientName">
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>                        
+                        
+                        <!-- Batch Creation -->
+                        <div id="newBatchContainer">
+                            <button type="button" id="addBatchBtn">Add New Batch</button>
+                        </div>
+
+                        <!-- Container for Batches and their Shots -->
+                        <div id="batchesContainer">
+                            <!-- Batches with their shots will be dynamically added here -->
+                        </div>
+
+                        <!-- Notes and Total Cost -->
+                        <label for="notes">Notes:</label>
+                        <textarea id="notes" name="notes"></textarea>
+
+                        <div>Total Cost: <span id="totalCost">0</span></div>
+
+                        <button type="submit">Save Project</button>
+                    </form>
+                </div>
+                <div id="FutureWork" class="tabcontent">
+                    <h2>Future Work</h2>
+                    <p>Content for future work will go here.</p>
+                </div>
+            </div>
+            <div class="projects-list">
+                <h2 class="static-heading">Projects</h2>
+                <button type="button" id="deleteSelectedButton" style="display:none;">Delete Selected</button>                    
+                <ul class="scrollable-list" id="projectList"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mapping Modal -->
+    <div id="mappingModal" class="modal">
+        <div class="modal-content">
+        <span id="closeMappingModal" class="close">&times;</span>
+        <h2>Map Excel Columns</h2>
+        <div id="mappingContainer">
+            <!-- Dynamic mapping content will be added here -->
+        </div>
+        <h3>Select Default Service and Vendor</h3>
+        <div id="universalDropdowns">
+            <label for="universalServiceSelect">Service:</label>
+            <select id="universalServiceSelect">
+            <!-- Service options will be populated dynamically -->
+            </select>
+            <label for="universalVendorSelect">Vendor:</label>
+            <select id="universalVendorSelect">
+            <!-- Vendor options will be populated dynamically -->
+            </select>
+        </div>
+        <button id="confirmMappingBtn">Confirm Mapping</button>
+        </div>
+    </div>
+
+    <!-- Custom Modal for Download template -->
+    <div id="customAlertModal" class="modal">
+        <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+    <script src="js/project-info.js"></script>
+    <!-- Include SheetJS library in your HTML -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</body>
+</html>

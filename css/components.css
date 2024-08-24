@@ -1,0 +1,389 @@
+/* components.css */
+/* Resets the project-row class to have no additional background color */
+.project-row {
+    display: flex;        /* Use flexbox to line up the children in a row */
+    align-items: center;  /* Center-align the items vertically */
+    gap: 10px;            /* Provide some space between each item */
+    padding: 5px;         /* Padding inside the project-row div */
+    border-radius: 5px;   /* Rounds the corners of the project-row background */
+}
+
+/* Apply styling directly to inputs and selects within the project-row */
+.project-row input,
+.project-row select {
+    flex-grow: 1;            /* Allows the fields to grow and fill the space */
+    padding: 10px;           /* Padding inside each field */
+    margin: 0;               /* Resets any default margin */
+    border: 1px solid #ccc;  /* Border for definition, change as needed */
+    border-radius: 5px;      /* Rounds the corners of the fields */
+}
+
+/* Specific background colors based on the client type */
+.international,
+.domestic {
+    background-color: transparent; /* Reset background for the div */
+}
+
+/* These will inherit the color and apply it to the project-row when the class is international or domestic */
+.international .project-row,
+.domestic .project-row {
+    background-color: inherit; /* Inherit background color from .international or .domestic */
+}
+
+/* Different colors based on the class added by the JavaScript */
+.international {
+    background-color: #FFD700; /* Gold for international clients */
+}
+
+.domestic {
+    background-color: #ADD8E6; /* Light blue for domestic clients */
+}
+
+#batchesContainer, .shotsContainer {
+    margin-top: 20px;
+}
+
+.batch, .shotsContainer div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.shotsContainer div + div {
+    margin-top: 10px;
+}
+
+.shotsContainer div {
+    flex-direction: row;
+    align-items: center;
+}
+
+.shotsContainer input {
+    margin-top: 0;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.shot {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.deleteShotBtn {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.deleteShotBtn:hover {
+    background-color: #ff3333;
+}
+
+.batch h3 {
+    cursor: pointer;
+    user-select: none;
+}
+
+.shotsContainer {
+    display: block;
+}
+
+.service-rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.service-rate > * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.service-rate select[name="serviceName"] {
+    width: 30%;
+}
+
+.service-rate input[type="text"][name="rate"] {
+    width: 20%;
+    display: inline; /* Overriding the display: none to make it visible */
+}
+
+.service-rate .delete-rate {
+    width: 25%;
+    margin-left: auto; /* This pushes the button to the right */
+}
+
+.service-rate label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevents wrapping to a new line */
+}
+
+.service-rate input[type="checkbox"] {
+    margin-right: 0.2em; /* Space between checkbox and text */
+}
+
+/* Ensure the label text and checkbox are placed side by side without squeezing */
+.service-rate span {
+    margin-right: 0.5em; /* Space between the label text and the checkbox */
+}
+
+.service-rate .info-btn {
+    margin-left: 0.5em; /* Space between the checkbox and the info button */
+    padding: 2px 5px;
+    font-size: 0.85em;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0 5px;
+    margin: 0 5px; /* Add space around the info button */
+}
+
+/* Add Notes button styling 
+.toggle-notes {
+    width: 100%;
+    background-color: #0084ff; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}*/
+
+.notes-input {
+    width: 100%;
+}
+
+
+.employee-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background-color: #e9e9e9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.fields-row, .options-row, .notes-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.fields-row input[type="text"],
+.fields-row input[type="email"],
+.fields-row input[type="url"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.fields-row input:last-child {
+    margin-right: 0;
+}
+
+.options-row {
+    justify-content: space-between;
+}
+
+.left-options, .right-options {
+    display: flex;
+    align-items: center;
+}
+
+.left-options label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+.right-options button {
+    margin-left: 10px;
+}
+
+
+.delete-employee {
+    background-color: #ff4d4d; /* Red background for delete button */
+    color: white; /* White text */
+    border: none; /* Removes border */
+    padding: 10px 20px; /* Padding for aesthetics */
+    cursor: pointer; /* Cursor to pointer */
+}
+
+.delete-employee:hover {
+    background-color: #ff3333; /* Darker red on hover */
+}
+
+
+/* FOR VENDOR */
+
+.teammate-details {
+    display: flex;
+    flex-wrap: wrap; /* Allows child elements to wrap onto the next line */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #e9e9e9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.teammate-details .row {
+    display: flex;
+    flex-basis: 100%; /* Ensures each row takes the full width */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows contents to wrap within the row */
+    margin-bottom: 10px;
+}
+
+.teammate-details .row input[type="text"],
+.teammate-details .row input[type="email"],
+.teammate-details .row input[type="url"] {
+    flex: 1; /* Allows inputs to expand to available space */
+    margin-right: 10px; /* Adds spacing between inputs */
+    min-width: 0; /* Prevents input from stretching beyond the flex container */
+}
+
+.teammate-details .row label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+/* Style for the Delete button */
+.teammate-details .delete-teammate {
+    background-color: #ff4d4d; /* Red background for delete button */
+    color: white; /* White text */
+    border: none; /* Removes border */
+    padding: 10px 20px; /* Padding for aesthetics */
+    cursor: pointer; /* Cursor to pointer */
+    flex-basis: 100%; /* Button takes full width of the container */
+}
+
+/* Adjust the last margin of the rows inside the .teammate-details */
+.teammate-details .row:last-child {
+    margin-bottom: 0;
+}
+
+.vendor-dropdown {
+    margin-left: 10px; /* Space between the input and dropdown */
+}
+
+.payment-details-container {
+    display: flex;
+    gap: 20px; /* Adjust the gap as necessary */
+}
+
+.payment-details-container input#paymentDetails {
+    flex: 0 1 80%; /* 80% of the space */
+}
+
+.payment-details-container input#gst {
+    flex: 0 1 20%; /* 20% of the space */
+}
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    padding-top: 60px; /* Padding at the top to space the modal away from the top */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: auto; /* Automatically adjust width based on content */
+    max-width: 20%; /* Ensure it doesn't get too wide */
+    min-width: 200px; /* Ensure it doesn't get too small */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    text-align: left; /* Align text to the left for a clean appearance */
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.hidden {
+    display: none;  
+}
+
+.batchContent {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.batchContent.dragover {
+    background-color: #e0e0e0;
+}
+
+.downloadTemplate {
+    display: inline-block;
+    margin-left: 10px;
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.downloadTemplate:hover {
+    text-decoration: underline;
+}
+
+.importExcelBtn.file-ready {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+
+
+
+
+

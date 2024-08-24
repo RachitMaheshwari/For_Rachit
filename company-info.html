@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Companies</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout-sidebar.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-container">
+            <h1>Manage Companies</h1>
+            <button type="button" id="newCompanyButton">Add New Company</button>
+        </div>       
+        <div class="content-container">
+                <div id="companyFormContainer" class="form-container">                    
+                    <div class="tabs">
+                        <button class="tablinks" onclick="openTab(event, 'Form')">Form</button>
+                        <button class="tablinks" onclick="openTab(event, 'FutureWork')">Future Work</button>
+                    </div>
+                    <div id="Form" class="tabcontent">
+                    <h2>Add New Company</h2>
+                    <form id="addCompanyForm">
+                        <input type="text" id="companyName" name="companyName" placeholder="Company Name" required>
+                        <select id="country" name="country" required></select>
+                        <input type="date" id="dateCreated" name="dateCreated" placeholder="Date Created">
+                        <select id="paymentModes" name="paymentModes"></select> <!-- Payment modes will be populated dynamically -->
+                        <input type="text" id="address" name="address" placeholder="Company Address" required>
+                        <input type="text" id="newDomain" name="domain" placeholder="Enter domain">
+                        <button type="button" id="extractInfoButton" style="display:none;">Extract Information</button>
+                        <!-- <button type="button" id="addDomainButton">Add Domain</button> -->
+                        <button type="button" id="refreshEmailsButton" style="display:none;">Refresh Emails</button>
+                        <span id="progressPercent" style="margin-left: 10px; display:none;">0%</span>                    
+                        
+                        <!-- Service Rate Section -->
+                        <div id="serviceRatesContainer">
+                            <button type="button" id="addRateButton">Add Rates for Services</button>
+                            <!-- Dynamic rate fields will be added here -->
+                        </div>
+                        
+                        <!-- Employee Details Section -->
+                        <div id="employeeDetailsContainer">
+                            <button type="button" id="addEmployeeButton">Add Employee</button>
+                            <table id="employeeTable">
+                                <!-- Dynamic employee fields will be added here -->
+                            </table>
+                        </div>
+
+
+                        
+                        <input type="date" id="lastConversationDate" name="lastConversationDate" placeholder="Last Conversation Date">
+                        <input type="text" id="mailSubject" name="mailSubject" placeholder="Subject Line of the Mail">
+                        
+                        <button type="submit" id="updateCompanyInfoButton">Update Company Info</button>
+
+                        <input type="hidden" id="companyId" name="companyId">
+
+                    </form>
+                </div>
+                    <div id="FutureWork" class="tabcontent">
+                        <h2>Future Work</h2>
+                        <p>Content for future work will go here.</p>
+                    </div>
+                </div>
+                <div class="companies-list">
+                    <h2 class="static-heading">Companies</h2>
+                    <button type="button" id="deleteSelectedButton" style="display:none;">Delete Selected</button>                    
+                <ul class="scrollable-list" id="companyList"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+    <script src="js/company-info.js"></script>
+</body>
+</html>

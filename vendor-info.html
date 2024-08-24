@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Vendors</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout-sidebar.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/components.css">    
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-container">
+            <h1>Manage Vendors</h1>
+            <button type="button" id="newVendorButton">Add New Vendor</button>
+        </div>        
+        <div class="content-container">
+            <div id="vendorFormContainer" class="form-container">
+                <div class="tabs">
+                    <button class="tablinks" onclick="openTab(event, 'VendorForm')">Form</button>
+                    <button class="tablinks" onclick="openTab(event, 'FutureWork')">Future Work</button>
+                </div>
+                <div id="VendorForm" class="tabcontent">
+                    <h2>Add New Vendor</h2>
+                    <form id="addVendorForm">
+                        <div class="input-flex-row">
+                            <input type="text" id="vendorName" name="vendorName" placeholder="Vendor Name" required>
+                            <input type="date" id="dateCreated" name="dateCreated" placeholder="Date Created">
+                            <input type="text" id="primaryPhone" name="primaryPhone" placeholder="Primary Phone Number">  
+                            <label>
+                                <input type="checkbox" id="paymentAtCompanyLevel" name="paymentAtCompanyLevel">
+                                Payment at Company Level
+                            </label>
+                        </div>
+                            <input type="text" id="address" name="address" placeholder="Vendor Address" required>
+                        <div class="payment-details-container">
+                            <input type="text" id="paymentDetails" name="paymentDetails" placeholder="Payment Details">
+                            <input type="text" id="gst" name="gst" placeholder="GST Number" style="display: none;">
+                        </div>                                    
+
+                        <!-- Service Rate Section -->
+                        <div id="serviceRatesContainer">
+                            <button type="button" id="addRateButton">Add Rates for Services</button>
+                            <!-- Dynamic rate fields will be added here -->
+                        </div>
+                        
+                            <!-- Teammate Details Section -->
+                            <div id="teammateDetailsContainer">
+                                <button type="button" id="addTeammateButton">Add Teammate</button>
+                                <table id="teammateTable">
+                                    <!-- Dynamic teammate fields will be added here -->
+                                </table>
+                            </div>                    
+                            
+                            <button type="submit" id="updateVendorInfoButton">Update Vendor Info</button>
+
+                            <input type="hidden" id="vendorId" name="vendorId">
+                        </form>
+                    </div>
+                    <div id="FutureWork" class="tabcontent">
+                        <h2>Future Work</h2>
+                        <p>Content for future work will go here.</p>
+                    </div>
+                </div>
+                <div class="vendors-list">
+                    <h2 class="static-heading">Vendors</h2>
+                    <button type="button" id="deleteSelectedButton" style="display:none;">Delete Selected</button>
+                <ul class="scrollable-list" id="vendorList"></ul>
+            </div>
+        </div>  
+    </div>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+    <script src="js/vendor-info.js"></script>
+</body>
+</html>
